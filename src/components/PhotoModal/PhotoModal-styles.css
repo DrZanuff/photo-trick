@@ -1,0 +1,41 @@
+.PhotoModal-container {
+  display: flex;
+}
+
+.PhotoModal-canvas-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fundo escuro com opacidade */
+  backdrop-filter: blur(10px); /* Aplica o blur no fundo */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out; /* Transição suave para a opacidade */
+  display: flex;
+  align-items: center;
+}
+
+.PhotoModal-canvas-container.open {
+  opacity: 1;
+  pointer-events: all; /* Permite interações quando o modal estiver visível */
+}
+
+.PhotoModal-canvas-container .canvas-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.PhotoModal-canvas-container .canvas-buttons-container button {
+  padding: 10px 20px;
+}
+
+.PhotoModal-canvas {
+  height: auto;
+  width: 100%;
+  aspect-ratio: 1/1;
+}

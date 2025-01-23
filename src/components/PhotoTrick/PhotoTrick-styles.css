@@ -1,0 +1,19 @@
+.PhotoTrick-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.PhotoTrick-feed-container {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
