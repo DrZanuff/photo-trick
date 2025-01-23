@@ -5,10 +5,12 @@ import { FrameSelector } from '@/components/FrameSelector';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 import { PhotoCamera as PhotoCameraIcon } from '@mui/icons-material';
 import './PhotoTrick-styles.css';
 import { PhotoModal } from '../PhotoModal';
 import { Logo } from '../Logo';
+import { Typography } from '@mui/material';
 
 export const PhotoTrick = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -112,52 +114,66 @@ export const PhotoTrick = () => {
     <div className={'PhotoTrick-container'}>
       <Stack direction="column" gap="20px">
         <Logo />
-        <Paper elevation={1}>
-          <div className="PhotoTrick-feed-container">
-            {!isStreaming && (
+        <div className="PhotoTrick-body">
+          <Box className="PhotoTrick-body-container" width={'100%'}>
+            <Paper elevation={1} sx={{ minWidth: '100%' }}>
+              <div className="PhotoTrick-feed-container">
+                {!isStreaming && (
+                  <Button
+                    variant="contained"
+                    color="warning"
+                    loading={isLoading}
+                    onClick={checkCameraAccess}
+                    startIcon={<PhotoCameraIcon />}
+                    sx={{ width: '90%' }}
+                  >
+                    {hasCamera ? 'ACTIVATE CAMERA' : 'ALLOW CAMERA ACCESS'}
+                  </Button>
+                )}
+
+                <VideoFeed
+                  isStreaming={isStreaming}
+                  selectedFrame={selectedFrame}
+                  ref={videoRef}
+                />
+              </div>
+            </Paper>
+          </Box>
+
+          <div className="PhotoTrick-body-container PhotoTrick-body-container-mobile">
+            <Stack direction="column" gap="20px" sx={{ width: '100%' }}>
+              <Paper
+                elevation={1}
+                sx={{ width: '100%', height: 'fit-content' }}
+              >
+                <FrameSelector
+                  handleSelectFrame={handleSelectFrame}
+                  selectedFrame={selectedFrame}
+                />
+              </Paper>
+
               <Button
                 variant="contained"
-                color="warning"
-                loading={isLoading}
-                onClick={checkCameraAccess}
-                startIcon={<PhotoCameraIcon />}
-                sx={{ width: '90%' }}
+                color="info"
+                disabled={!isStreaming || !selectedFrame}
+                onClick={takePhoto}
+                sx={{
+                  borderRadius: '50%',
+                  aspectRatio: '1/1',
+                  maxWidth: '64px',
+                  margin: '0 auto',
+                }}
               >
-                {hasCamera ? 'ACTIVATE CAMERA' : 'ALLOW CAMERA ACCESS'}
+                <PhotoCameraIcon />
               </Button>
-            )}
 
-            <VideoFeed
-              isStreaming={isStreaming}
-              selectedFrame={selectedFrame}
-              ref={videoRef}
-            />
+              <Typography color="warning">
+                <i>Allow camera access, select a frame then take a photo!</i>
+              </Typography>
+            </Stack>
           </div>
-        </Paper>
-
-        <Paper elevation={1}>
-          <FrameSelector
-            handleSelectFrame={handleSelectFrame}
-            selectedFrame={selectedFrame}
-          />
-        </Paper>
+        </div>
       </Stack>
-
-      {isStreaming && selectedFrame && (
-        <Button
-          variant="contained"
-          color="info"
-          onClick={takePhoto}
-          sx={{
-            borderRadius: '50%',
-            aspectRatio: '1/1',
-            maxWidth: '64px',
-            margin: '20px auto',
-          }}
-        >
-          <PhotoCameraIcon />
-        </Button>
-      )}
 
       <PhotoModal
         handleCloseModal={handleCloseModal}

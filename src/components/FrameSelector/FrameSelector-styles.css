@@ -5,7 +5,12 @@
   width: 100%;
   min-height: 250px;
 
+  @media (max-width: 768px) {
+    min-height: unset;
+  }
+
   h3 {
+    margin: 0;
     text-transform: uppercase;
   }
 }
@@ -35,4 +40,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.FrameSelector-container .alice-carousel {
+  margin: auto;
+
+  @media (max-width: 768px) {
+    margin: 10px auto;
+  }
 }

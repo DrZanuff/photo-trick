@@ -4,6 +4,8 @@ import './PhotoModal-styles.css';
 import Paper from '@mui/material/Paper';
 import { H_SIZE, W_SIZE } from '@/constants/sizes';
 import Button from '@mui/material/Button';
+import CloseIcon from '@mui/icons-material/Close';
+import DownloadIcon from '@mui/icons-material/Download';
 
 export const PhotoModal = forwardRef<HTMLCanvasElement, PhotoModalProps>(
   ({ handleCloseModal, isModalOpen, selectedFrame }, ref) => {
@@ -45,11 +47,20 @@ export const PhotoModal = forwardRef<HTMLCanvasElement, PhotoModalProps>(
           />
 
           <div className="canvas-buttons-container">
-            <Button variant="contained" onClick={handleSaveImage}>
-              Salvar Foto
+            <Button
+              variant="contained"
+              color="error"
+              startIcon={<CloseIcon />}
+              onClick={handleCloseModal}
+            >
+              CLOSE
             </Button>
-            <Button variant="contained" onClick={handleCloseModal}>
-              Fechar
+            <Button
+              variant="contained"
+              startIcon={<DownloadIcon />}
+              onClick={handleSaveImage}
+            >
+              DOWNLOAD
             </Button>
           </div>
         </Paper>

@@ -8,9 +8,9 @@ import { COLORS } from '@/theme';
 const handleDragStart = (e: any) => e.preventDefault();
 
 const responsive = {
-  0: { items: 3 },
-  // 568: { items: 3, },
-  // 1024: { items: 3, },
+  0: { items: 2 },
+  768: { items: 2 },
+  1024: { items: 3 },
 };
 
 export function FrameSelector({
@@ -24,6 +24,8 @@ export function FrameSelector({
         disableButtonsControls
         disableDotsControls
         mouseTracking
+        paddingLeft={50}
+        paddingRight={50}
         responsive={responsive}
         items={FRAMES.map((frame, index) => (
           <div className="slide" key={index} onDragStart={handleDragStart}>
