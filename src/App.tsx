@@ -1,12 +1,7 @@
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { PhotoTrick } from './components/PhotoTrick';
 import './App.css';
-
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
+import { theme } from './theme';
 
 export const App = () => {
   return (

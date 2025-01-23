@@ -1,20 +1,23 @@
-/* FrameSelector-styles.css */
 .FrameSelector-container {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  width: 100%;
+
+  h3 {
+    text-transform: uppercase;
+  }
 }
 
 .FrameSelector-image {
-  scroll-snap-align: center; /* Faz cada imagem "travar" no centro ao scrollar */
+  scroll-snap-align: center;
   width: 100px;
   height: auto;
   cursor: pointer;
   transition:
     transform 0.2s,
     border 0.2s;
-  flex-shrink: 0; /* Garante que as imagens não serão redimensionadas no eixo flex */
+  flex-shrink: 0;
 }
 
 .FrameSelector-image:hover {
@@ -22,7 +25,7 @@
 }
 
 .FrameSelector-selected {
-  border: 2px solid blue;
+  border: 2px solid #8a2be2;
   border-radius: 4px;
 }
 

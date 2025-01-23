@@ -2,10 +2,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-
-  h1 {
-    margin: 0;
-  }
+  width: 100%;
 }
 
 .PhotoTrick-feed-container {

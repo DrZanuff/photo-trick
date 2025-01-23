@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack';
 import { PhotoCamera as PhotoCameraIcon } from '@mui/icons-material';
 import './PhotoTrick-styles.css';
 import { PhotoModal } from '../PhotoModal';
+import { Logo } from '../Logo';
 
 export const PhotoTrick = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -110,7 +111,7 @@ export const PhotoTrick = () => {
   return (
     <div className={'PhotoTrick-container'}>
       <Stack direction="column" gap="20px">
-        <h1>Photo-trick</h1>
+        <Logo />
         <Paper elevation={1}>
           <div className="PhotoTrick-feed-container">
             {!isStreaming && (
@@ -122,7 +123,7 @@ export const PhotoTrick = () => {
                 startIcon={<PhotoCameraIcon />}
                 sx={{ width: '90%' }}
               >
-                {hasCamera ? 'Ativar Câmera' : 'Permitir Acesso à Câmera'}
+                {hasCamera ? 'ACTIVATE CAMERA' : 'ALLOW CAMERA ACCESS'}
               </Button>
             )}
 
@@ -145,6 +146,7 @@ export const PhotoTrick = () => {
       {isStreaming && selectedFrame && (
         <Button
           variant="contained"
+          color="info"
           onClick={takePhoto}
           sx={{
             borderRadius: '50%',
@@ -161,6 +163,7 @@ export const PhotoTrick = () => {
         handleCloseModal={handleCloseModal}
         isModalOpen={isModalOpen}
         ref={canvasRef}
+        selectedFrame={selectedFrame || 'photo.png'}
       />
     </div>
   );

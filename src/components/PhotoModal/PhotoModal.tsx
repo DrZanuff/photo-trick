@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { MutableRefObject, forwardRef } from 'react';
 import type { PhotoModalProps } from './PhotoModal.types';
 import './PhotoModal-styles.css';
 import Paper from '@mui/material/Paper';
@@ -6,8 +6,20 @@ import { H_SIZE, W_SIZE } from '@/constants/sizes';
 import Button from '@mui/material/Button';
 
 export const PhotoModal = forwardRef<HTMLCanvasElement, PhotoModalProps>(
-  ({ handleCloseModal, isModalOpen }, ref) => {
-    const handleSaveImage = () => {};
+  ({ handleCloseModal, isModalOpen, selectedFrame }, ref) => {
+    const handleSaveImage = () => {
+      if (ref && (ref as MutableRefObject<HTMLCanvasElement | null>).current) {
+        const canvas = (ref as MutableRefObject<HTMLCanvasElement>).current;
+
+        const imageURL = canvas.toDataURL('image/png');
+
+        const link = document.createElement('a');
+        link.href = imageURL;
+        link.download = `photo-trick${selectedFrame}`;
+
+        link.click();
+      }
+    };
 
     return (
       <div

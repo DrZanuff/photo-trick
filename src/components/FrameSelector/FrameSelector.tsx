@@ -2,16 +2,17 @@ import type { FrameSelectorProps } from './FrameSelector.types';
 import './FrameSelector-styles.css';
 import { FRAMES } from '@/constants/frames';
 import useEmblaCarousel from 'embla-carousel-react';
+import { COLORS } from '@/theme';
 
 export function FrameSelector({
   handleSelectFrame,
   selectedFrame,
 }: FrameSelectorProps) {
-  const [emblaRef] = useEmblaCarousel({ dragFree: true, loop: true });
+  const [emblaRef] = useEmblaCarousel({ dragFree: true });
 
   return (
     <div className="FrameSelector-container">
-      <h3>Escolha um Frame:</h3>
+      <h3 style={{ color: COLORS.INFO_MAIN }}>CHOOSE A FRAME</h3>
       <section className="embla">
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
