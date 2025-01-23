@@ -1,5 +1,9 @@
 # Photo-Trick
 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/86a94869-956e-4e57-9d9c-1acb68d33aab" alt="photo-trick" />
+</div>
+
 Photo-Trick is a simple and fun web application designed to demonstrate how to manipulate the user's camera feed using native JavaScript. Inspired by those amusement park photo frames where you can place your face in a cutout (like an astronaut or character) and take a picture, this application brings that idea to the digital world.
 
 ## Features
@@ -50,7 +54,7 @@ Photo-Trick is a simple and fun web application designed to demonstrate how to m
 
 ## Demo
 
-Experience Photo-Trick live: [Photo-Trick Demo](https://your-demo-url.com)
+Experience Photo-Trick live: [Photo-Trick Demo][(https://your-demo-url.com](https://photo-trick.netlify.app/))
 
 ## Usage
 
