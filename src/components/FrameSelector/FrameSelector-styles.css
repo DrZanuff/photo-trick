@@ -24,6 +24,7 @@
     transform 0.2s,
     border 0.2s;
   flex-shrink: 0;
+  background-color: white;
 }
 
 .FrameSelector-image:hover {
