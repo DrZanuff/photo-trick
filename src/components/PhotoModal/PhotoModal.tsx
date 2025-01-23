@@ -15,9 +15,16 @@ export const PhotoModal = forwardRef<HTMLCanvasElement, PhotoModalProps>(
 
         const imageURL = canvas.toDataURL('image/png');
 
+        const now = new Date();
+        const formattedDate = now
+          .toISOString() // Get the date in ISO format
+          .replace(/[:.]/g, '-') // Replace characters not allowed in file names
+          .split('T') // Split date and time
+          .join('_'); // Join date and time with an underscore
+
         const link = document.createElement('a');
         link.href = imageURL;
-        link.download = `photo-trick${selectedFrame}`;
+        link.download = `photo-trick_${formattedDate}${selectedFrame}`;
 
         link.click();
       }

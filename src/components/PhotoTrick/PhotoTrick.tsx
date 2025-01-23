@@ -181,6 +181,15 @@ export const PhotoTrick = () => {
         ref={canvasRef}
         selectedFrame={selectedFrame || 'photo.png'}
       />
+
+      <Typography color="secondary">
+        <i>
+          Developed by{' '}
+          <a href="https://github.com/DrZanuff" target="_blank">
+            Ricardo Machado
+          </a>
+        </i>
+      </Typography>
     </div>
   );
 };
